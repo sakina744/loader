@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          html,body{
+            height: 100%;
+            margin: 0;
+          }
+          body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            background-color: black;
+          }
+          #loading{
+            --size:300px;
+            --quater:calc(var(--size)/4);
+            width: var(--size);
+            height: var(--quater);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: calc(var(--size)/35) solid cyan;
+            border-top: none;
+          }
+          #loading>div {
+            width: calc(var(--quater)* .9);
+            height: calc(var(--quater)* .9);
+            background-color: cyan;
+            border-radius: 50%;
+            animation-name: moveH;
+            animation-duration: .7s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+          }
+          #first{
+            transform-origin: calc(var(--size) / 2 - var(--quater) *.05);
+            animation-name: jump !important;
+          }
+          @keyframes jump{
+            to{
+                transform: rotate(180deg);
+            }
+          }
+          @keyframes moveH{
+            to{
+                transform: translate(calc(var(--quater) * -1));
+            }
+          }
+        </style>
+    </head>
+    <body>
+        <div id="loading">
+            <div id="first"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </body>
+</html>

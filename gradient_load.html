@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+          :root{
+            --page-bg: honeydew;
+            --loader-bar-bg: darkcyan;
+            --loader-bar-width: 5vmin;
+          }
+          body{
+            margin: 0;
+            display: flex;
+            height: 100svh;
+            background: var(--page-bg);
+          }
+          .loader{
+            position: relative;
+            width: 50vmin;
+            aspect-ratio: 1;
+            background: conic-gradient(transparent, transparent 12%, var(--loader-bar-bg));
+            border-radius: 50%;
+            margin: auto;
+            animation: spin 1.1s linear infinite;
+          }
+          .loader::before,
+          .loader::after{
+            content: "";
+            position: absolute;
+            border-radius: inherit;
+          }
+          .loader::before{
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to left , var(--loader-bar-bg) 50%,transparent 50%);
+            width: var(--loader-bar-width);
+            aspect-ratio: 1;
+          }
+          .loader::after{
+            inset: var(--loader-bar-width);
+            background: var(--page-bg);
+          }
+          @keyframes spin{
+            to{
+                transform: rotate(1turn);
+            }
+          }
+        </style>
+    </head>
+    <body>
+        <div class="loader"></div>
+    </body>
+</html>
